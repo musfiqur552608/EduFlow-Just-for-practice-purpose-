@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- courses/templates/courses/course_confirm_delete.html -->
+    <h1>Delete "{{ course.title }}"?</h1>
+    <p>This action cannot be undone. All lessons under this course will also be deleted.</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Yes, delete it</button>
+    </form>
+
+    <a href="{% url 'courses:course-detail' course_slug=course.slug %}">Cancel</a>
+</body>
+
+</html>

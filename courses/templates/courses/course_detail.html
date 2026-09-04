@@ -21,7 +21,10 @@
         <li>No lessons yet.</li>
         {% endfor %}
     </ol>
-
+    {% if user == course.instructor %}
+    <a href="{% url 'courses:course-update' course_slug=course.slug %}">Edit</a>
+    <a href="{% url 'courses:course-delete' course_slug=course.slug %}">Delete</a>
+    {% endif %}
     <a href="{% url 'courses:course-list' %}">← Back to all courses</a>
 </body>
 
